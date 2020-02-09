@@ -1,0 +1,65 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+      <div>
+	    <form class="form-horizontal" action="{{url_for('admin.add_site')}}" method="POST">
+      <div class="control-group">
+        <label class="control-label" for="site_name">Название сайта</label>
+        <div class="controls">
+          <input type="text" id="site_name" name="site_name" placeholder="Название сайта">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="site_url">Адрес сайта</label>
+        <div class="controls">
+          <input type="text" id="site_url" name="site_url" placeholder="Адрес сайта">
+        </div>
+      </div>
+	  <div class="control-group">
+        <label class="control-label" for="site_image">Скриншот</label>
+        <div class="controls">
+          <input type="file" id="site_image" name="site_image">
+        </div>
+      </div>
+	  <div class="control-group">
+        <label class="control-label" for="site_tags" name="site_tags">Тэги</label>
+        <div class="controls">
+          
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tags">Показать тэги
+            </div>
+            <div id="tags" class="modal fade" style="display:none">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Все тэги</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+						<table class="table table-condensed" style="margin-bottom: 0px;">
+                        {% for tag in tags %}
+							<tr>
+								<td>
+								<div class="checkbox">
+								<label>
+								<input id="tag-{{ loop.index0 }}" name="tags" type="checkbox" value="{{ tag.name }}"><b>{{ tag.name }}</b>
+								</label>
+								</div>
+								</td>
+							</tr>
+						            {% endfor %}
+						</table>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Ок</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </button>
+      </div>
+
+	  <button type="submit" class="btn btn-success">Добавить сайт</button>
+    </form>
+    </div>
+{% endblock %}
