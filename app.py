@@ -57,7 +57,7 @@ class HomeAdminView(AdminMixin, AdminIndexView):
 
 
 admin = Admin(app,
-              'Katalog',
+              'Catalog',
               url='/',
               index_view=HomeAdminView(name='Добавить сайт'))
 admin.add_view(BaseModelView(Site, db.session))

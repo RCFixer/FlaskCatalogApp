@@ -28,7 +28,7 @@ class Site(db.Model):
 
     def __init__(self, *args, **kwargs):
         super(Site, self).__init__(*args, **kwargs)
-        #self.generate_short_url()
+        self.generate_short_url()
 
     def generate_short_url(self):
         if self.name:

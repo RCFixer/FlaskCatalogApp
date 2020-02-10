@@ -12,13 +12,12 @@
 
 {% block content %}
 <div class='row h-100 col-11 center_block'>
-{% for site in languages %}
+{% for site in sites %}
 <div class="card ml-1 mt-3 mr-1" style="width: 18rem;">
         <img class="card-img-top" src="{{url_for('static',filename='images/screens/286x180.svg')}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">{{ site.name }}</h5>
+          <a href="{{site.url}}" class="btn btn-primary">Перейти на сайт</a>
         </div>
 </div>
 {% endfor %}

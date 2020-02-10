@@ -16,25 +16,29 @@
   </head>
   <body style="background:url({{url_for('static', filename='images/bg.jpg')}})">
     <div class="sidebar-container">
-      <div class="sidebar-logo">
-        Essentials Prog Catalog
-      </div>
+        <div class="sidebar-logo">
+          <a href='{{ url_for("index") }}' style="color:#fff">
+            Essentials Prog Catalog
+          </a>
+        </div>
       <ul class="sidebar-navigation">
         {% for language in languages %}
         <li>
-          <a href="/{{language}}">
-            <i class="fa fa-home" aria-hidden="true"></i> {{language}}
+          <a href="/{{language.clear_name}}">
+            <i class="fa fa-home" aria-hidden="true"></i> {{language.name}}
           </a>
         </li>
         {% endfor %}
       </ul>
     </div>
     
-    <div  class="content-container">
+    <div class="row content-container">
+      <div class="badge badge-primary text-wrap center_block">
         <h1>
             {% block content_title %}
             {% endblock %}
         </h1>
+      </div>
       <div class="container-fluid">
     
         <!-- Main component for a primary marketing message or call to action -->

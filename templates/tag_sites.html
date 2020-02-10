@@ -7,6 +7,7 @@
 
 
 {% block content_title %}
+  {{tag.name}}
 {% endblock %}
 
 
@@ -17,8 +18,7 @@
         <img class="card-img-top" src="{{url_for('static',filename='images/screens/286x180.svg')}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ site.name }}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Перейти на сайт</a>
+          <a href="{{site.url}}" class="btn btn-primary">Перейти на сайт</a>
         </div>
 </div>
 {% endfor %}

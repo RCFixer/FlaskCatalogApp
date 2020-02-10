@@ -11,16 +11,17 @@ def context_processor():
     tags = Tags.query.all()
     languages = []
     for tag in tags:
-        languages.append(tag.name)
+        languages.append(tag)
     return dict(languages=languages)
 
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('index.html')
+    sites = Site.query.all()
+    return render_template('index.html', sites=sites)
 
 
 @app.route('/<tag>', methods=['POST', 'GET'])
 def tag_sites(tag):
-    tag = Tags.query.filter(Tags.name == tag).first_or_404()
+    tag = Tags.query.filter(Tags.clear_name == tag).first_or_404()
     return render_template('tag_sites.html', tag=tag)
